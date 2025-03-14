@@ -3,6 +3,8 @@ package provider
 import (
 	"context"
 	"fmt"
+	"os"
+
 	"github.com/cortexapps/terraform-provider-cortex/internal/cortex"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -10,7 +12,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"os"
 )
 
 // Ensure CortexProvider satisfies various provider interfaces.
@@ -106,6 +107,7 @@ func (p *CortexProvider) Resources(ctx context.Context) []func() resource.Resour
 		NewScorecardResource,
 		NewResourceDefinitionResource,
 		NewCatalogEntityCustomDataResource,
+		NewTeamRoleResource,
 	}
 }
 

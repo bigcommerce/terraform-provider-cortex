@@ -4,12 +4,13 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/dghubble/sling"
-	"github.com/motemen/go-loghttp"
-	_ "github.com/motemen/go-loghttp/global" // Just this line!
 	"net/http"
 	"net/url"
 	"os"
+
+	"github.com/dghubble/sling"
+	"github.com/motemen/go-loghttp"
+	_ "github.com/motemen/go-loghttp/global" // Just this line!
 )
 
 const (
@@ -19,6 +20,7 @@ const (
 
 var BaseUris = map[string]string{
 	"teams":                "/api/v1/teams/",
+	"teams_roles":          "/api/v1/teams/roles/",
 	"departments":          "/api/v1/teams/departments/",
 	"scorecards":           "/api/v1/scorecards/",
 	"catalog_entities":     "/api/v1/catalog/",
@@ -156,6 +158,8 @@ func (c *HttpClient) CatalogEntityCustomData() CatalogEntityCustomDataClientInte
 func (c *HttpClient) Teams() TeamsClientInterface {
 	return &TeamsClient{client: c}
 }
+
+func (c *HttpClient) TeamRoles() TeamRolesClientInterface { return &TeamRolesClient{client: c} }
 
 func (c *HttpClient) Departments() DepartmentsClientInterface {
 	return &DepartmentsClient{client: c}
