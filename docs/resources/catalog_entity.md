@@ -306,6 +306,7 @@ Required:
 
 Optional:
 
+- `alias` (String) GitHub alias. Only relevant if you've opted into multi-account support.
 - `base_path` (String) Base path if not /
 
 

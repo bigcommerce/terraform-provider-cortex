@@ -248,6 +248,10 @@ func (r *CatalogEntityResource) Schema(ctx context.Context, req resource.SchemaR
 								MarkdownDescription: "Base path if not /",
 								Optional:            true,
 							},
+							"alias": schema.StringAttribute{
+								MarkdownDescription: "GitHub alias. Only relevant if you've opted into multi-account support.",
+								Optional:            true,
+							},
 						},
 					},
 					"gitlab": schema.SingleNestedAttribute{

@@ -830,12 +830,14 @@ func (o *CatalogEntityGitResourceModel) FromApiModel(ctx context.Context, diagno
 type CatalogEntityGithubResourceModel struct {
 	Repository types.String `tfsdk:"repository"`
 	BasePath   types.String `tfsdk:"base_path"`
+	Alias      types.String `tfsdk:"alias"`
 }
 
 func (o *CatalogEntityGithubResourceModel) AttrTypes() map[string]attr.Type {
 	return map[string]attr.Type{
 		"repository": types.StringType,
 		"base_path":  types.StringType,
+		"alias":      types.StringType,
 	}
 }
 
@@ -843,6 +845,7 @@ func (o *CatalogEntityGithubResourceModel) ToApiModel() cortex.CatalogEntityGitG
 	return cortex.CatalogEntityGitGithub{
 		Repository: o.Repository.ValueString(),
 		BasePath:   o.BasePath.ValueString(),
+		Alias:      o.Alias.ValueString(),
 	}
 }
 
@@ -854,9 +857,14 @@ func (o *CatalogEntityGithubResourceModel) FromApiModel(ctx context.Context, dia
 	if entity.BasePath == "" {
 		basePath = types.StringNull()
 	}
+	alias := types.StringValue(entity.Alias)
+	if entity.Alias == "" {
+		alias = types.StringNull()
+	}
 	ghm := CatalogEntityGithubResourceModel{
 		Repository: types.StringValue(entity.Repository),
 		BasePath:   basePath,
+		Alias:      alias,
 	}
 	obj, d := types.ObjectValueFrom(ctx, ghm.AttrTypes(), &ghm)
 	diagnostics.Append(d...)
