@@ -435,6 +435,7 @@ func (o *CatalogEntityFireHydrantService) Enabled() bool {
 type CatalogEntityGitGithub struct {
 	Repository string `json:"repository" yaml:"repository"`
 	BasePath   string `json:"basepath,omitempty" yaml:"basepath,omitempty"`
+	Alias      string `json:"alias,omitempty" yaml:"alias,omitempty"`
 }
 
 func (o *CatalogEntityGitGithub) Enabled() bool {

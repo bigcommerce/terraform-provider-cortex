@@ -280,6 +280,7 @@ func (c *CatalogEntityParser) interpolateGit(entity *CatalogEntityData, gitMap m
 		entity.Git.Github = CatalogEntityGitGithub{
 			Repository: MapFetchToString(githubMap, "repository"),
 			BasePath:   MapFetchToString(githubMap, "basepath"),
+			Alias:      MapFetchToString(githubMap, "alias"),
 		}
 	} else {
 		entity.Git.Github = CatalogEntityGitGithub{}
