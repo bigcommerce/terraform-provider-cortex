@@ -2,6 +2,8 @@ Changelog for the Cortex terraform provider.
 
 ## Unreleased
 
+* Add ability to set `alias` on github configurations on catalog entities
+
 ## 0.4.2
 * Fixes `cortex_scorecard` resource so that `rules` are a set. Order doesn't matter.
 
