@@ -221,7 +221,6 @@ func TestAccCatalogEntityResourceComplete(t *testing.T) {
 					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "links.0.url", "https://internal-docs.cortex.io/products-service"),
 
 					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "git.github.repository", "cortexio/products-service"),
-					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "git.gitlab.repository", "cortexio/products-service"),
 					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "git.azure.project", "cortexio"),
 					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "git.azure.repository", "cortexio/products-service"),
 					resource.TestCheckResourceAttr("cortex_catalog_entity.test", "git.bitbucket.repository", "cortexio/products-service"),
@@ -379,9 +378,6 @@ resource "cortex_catalog_entity" "test" {
 
   git = {
     github = {
-      repository = "cortexio/products-service"
-    }
-    gitlab = {
       repository = "cortexio/products-service"
     }
     azure = {
