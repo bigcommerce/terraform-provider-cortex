@@ -5,8 +5,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/dghubble/sling"
 	"log"
+
+	"github.com/dghubble/sling"
 )
 
 type TeamsClientInterface interface {
